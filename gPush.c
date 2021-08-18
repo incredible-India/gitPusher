@@ -57,9 +57,61 @@ void MenuBar()
     //first we will check either git is installed in our machine or not
     gitInstalled = checkInstallation();
 
-    if(gitInstalled)
+    if(!gitInstalled)
     {
-        printf("Hello");
+        //if git is installed we will show the menu
+        ////////////////////////////////////
+        char op;
+
+        system("cls");
+
+        system("color 0b");
+
+        gotoxy(40,5);
+
+        printf("1 : Current Status");
+
+        gotoxy(40,7);
+
+        printf("2 : Start Project");
+
+        gotoxy(40,9);
+
+        printf("3 : Give Contribution");
+
+        gotoxy(40,11);
+
+        printf("4 : Exit");
+
+        readAg:
+
+        op =getch();
+
+        if(op == '1')
+        {
+
+
+        }else if(op == '2')
+
+    {
+
+
+    }else if(op == '3')
+    {
+
+    }else if(op == '4')
+    {
+
+    Exitfn();
+
+    }else{
+
+     printf("\a");
+
+     goto readAg;
+
+    }
+     /////////////////////////////
 
     }else
     {
