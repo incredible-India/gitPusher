@@ -19,6 +19,7 @@
  int checkInstallation(void);
  void gotoxy(int,int);
  void Exitfn(void);
+ void currentStatus(void);
 
 
  /**********************main function***************************/
@@ -62,7 +63,7 @@ void MenuBar()
         //if git is installed we will show the menu
         ////////////////////////////////////
         char op;
-
+        again1:
         system("cls");
 
         system("color 0b");
@@ -89,7 +90,10 @@ void MenuBar()
 
         if(op == '1')
         {
+            currentStatus();//after returning to this function it goes to main menu
+            getch();
 
+            goto again1;
 
         }else if(op == '2')
 
@@ -98,6 +102,8 @@ void MenuBar()
 
     }else if(op == '3')
     {
+        system("start https://github.com/incredible-India/gitPusher");
+        exit(0);
 
     }else if(op == '4')
     {
@@ -151,6 +157,33 @@ void MenuBar()
 
 }
 
+//Current Status Of git
+
+void currentStatus()
+{
+    system("cls");
+    system("color 0d");
+    printf("Git Version\n");
+    system("git log --oneline");
+
+     printf("\nCurrent Path..\n");
+    system("echo %cd%");
+
+    printf("\nGlobal User Name\n");
+    system("git config --global user.name");
+
+    printf("\nGlobal User Email\n");
+    system("git config --global user.email");
+
+    printf("\nLocal User Name\n");
+    system("git config user.name");
+
+    printf("\nLocal User Email\n");
+    system("git config user.email");
+
+
+
+}
 
 
 //git installed status
