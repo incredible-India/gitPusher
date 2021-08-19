@@ -20,6 +20,8 @@
  void gotoxy(int,int);
  void Exitfn(void);
  void currentStatus(void);
+ void CustomSetting(void);
+ void gtDtail(char []);
 
 
  /**********************main function***************************/
@@ -64,6 +66,7 @@ void MenuBar()
         ////////////////////////////////////
         char op;
         again1:
+            again2:
         system("cls");
 
         system("color 0b");
@@ -96,8 +99,10 @@ void MenuBar()
             goto again1;
 
         }else if(op == '2')
-
     {
+        CustomSetting();
+        getch();
+        goto again2;
 
 
     }else if(op == '3')
@@ -157,6 +162,72 @@ void MenuBar()
 
 }
 
+//for the custom settings
+void CustomSetting()
+{
+    char *username = (char *) malloc(100*sizeof(char));
+    char *useremail = (char *) malloc (100*sizeof(char));
+    char *commit = (char *) malloc (200*sizeof(char));
+    char *branch = (char *) malloc(30*sizeof(char));
+    char *filepath = (char *) malloc(100*sizeof(char));
+
+    system("cls");
+    //first we will initlise the git
+
+    system("git init");
+
+    printf("\n Your Current path is\n\t");
+
+    system("echo %cd%");
+
+    gtDtail("path");
+
+
+    gets(filepath);
+
+    if(strlen(filepath) != 0)
+    {
+        system(filepath);
+        free(filepath);
+    }
+    //checking for user name
+
+
+     printf("\n Your Current User name is\n\t");
+
+    system("git config --global user.name");
+
+    gtDtail("User Name");
+
+
+    gets(username);
+
+    if(strlen(username) != 0)
+    {
+    //this will change the user name globally
+        char gitCMD[] = "git config --global user.name ";
+        char lcomma[100] = "\"";
+        char rcomma[] = "\"";
+       // char name[100] ;
+
+
+
+
+      strcat(lcomma,strcat(username,rcomma));
+      puts(lcomma);
+      fflush(stdin);
+
+       printf("%s",(strcat(gitCMD,lcomma)));
+
+    free(username);
+
+    }
+
+
+
+
+
+}
 //Current Status Of git
 
 void currentStatus()
@@ -164,7 +235,7 @@ void currentStatus()
     system("cls");
     system("color 0d");
     printf("Git Version\n");
-    system("git log --oneline");
+    system("git --version");
 
      printf("\nCurrent Path..\n");
     system("echo %cd%");
@@ -220,3 +291,12 @@ void Exitfn()
     getch();
     exit(0);
 }
+
+void gtDtail(char ch[])
+{
+    printf("\n Write %s or press \"Enter\" to continue..\n",ch);
+    fflush(stdin);
+
+}
+
+
