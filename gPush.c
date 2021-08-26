@@ -37,7 +37,7 @@
     }else
     {
 
-        printf("Sorry this application is not supported in Linux or its versions\n Only for Windows Operating System..");
+        printf("Sorry this application is not supported in Linux or its versions\n Only for Windows Operating System...");
 
         getch();
     }
