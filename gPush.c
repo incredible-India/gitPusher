@@ -81,7 +81,7 @@ void MenuBar()
 
         gotoxy(40,9);
 
-        printf("3 : Give Contribution");
+        printf("3 : Give Contribution ");
 
         gotoxy(40,11);
 
